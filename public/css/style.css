@@ -102,6 +102,16 @@ select {
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
+.error {
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+
+h2 {
+    color: red;
+}
+
 nav {
     background-color: #1D90FF;
     margin-bottom: 60px;

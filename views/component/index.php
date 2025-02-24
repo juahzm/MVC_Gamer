@@ -12,7 +12,7 @@
 <th>Component Description</th>
 <th>Component Guarantee</th>
 <th>Component Price</th>
-<th>Component Manufacturer<th>
+<th>Component Manufacturer</th>
 
 </tr>
 </thead>
@@ -25,10 +25,10 @@
 <td>{{component.componentDescription}}</td>
 <td>{{component.componentGuarantee}}</td>
 <td>{{component.componentPrice}}</td>
-<td>{{component.manufacturerNom}}></td>
+<td>{{component.manufacturerNom}}</td>
 <td> <a href="{{base}}/component/show?componentId={{component.componentId}}"  class="bouton">View</a></td>
 <td>
-<form action="component_delete.php" method="post">
+<form action="{base}}/component/delete.php" method="post">
 <input type="hidden" name="id" value="{{Component.componentId}}">
 <input type="submit" class="bouton_delete" value="delete">
 </form>
@@ -48,7 +48,7 @@
 <br>
 <br>
 
-<a href="{{base}}/client/create" class="bouton">New Component</a>
+<a href="{{base}}/component/create" class="bouton">New Component</a>
 
 </div>
 </section>

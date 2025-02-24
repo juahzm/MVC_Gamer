@@ -1,16 +1,22 @@
 {{ include('layouts/header.php', {title:'Component Create'})}}
     <div class="Info flex-row">
-        <form action="component_store.php" method="post">
+        <form action="{{base}}/component/store" method="post">
             <div class="h1">
                 <h1>Add Component</h1>
             </div>
             
             <label>Component Name
-                <input type="text" name="componentName">
+                <input type="text" name="componentName" value="{{component.componentName}}">
             </label>
+            (% if errors.componentName is defined %)
+            <span class="error">{{errors.componentName}}</span>
+            (%endif%)
             <label>Component Description
-                <input type="text" name="componentDescription">
+                <input type="text" name="componentDescription" value="{{component.componenDescription}}">
             </label>
+            (% if errors.componentDescription is defined %)
+            <span class="error">{{errors.componentDescription}}</span>
+            (%endif%)
             <label>Component Guarantee 
                 <input type="date" name="componentGuarantee">
             </label>
