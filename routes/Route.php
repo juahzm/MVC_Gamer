@@ -44,7 +44,12 @@ class Route {
                     }
                    
                 } elseif($method == 'POST'){
-                    $controllerInstance->$methodName($_POST);
+                    if(isset($urlSegments[1])){
+                        parse_str($urlSegments[1], $queryParams);
+                        $controllerInstance->$methodName($_POST, $queryParams);    
+                    }else{
+                        $controllerInstance->$methodName($_POST);
+                    }
                 }
                 return;
             }

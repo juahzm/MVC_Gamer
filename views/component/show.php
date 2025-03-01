@@ -1,4 +1,4 @@
-{{ include('layouts/header.php', {title:'Component'})}}
+{{ include('layouts/header.php', {title:'Component Show'})}}
 
 <div class="Info flex-row">
 <div class="h1">
@@ -8,7 +8,7 @@
 <p><strong>Component Description : </strong>{{component.componentDescription}}</p>
 <p><strong>Component Guarantee : </strong>{{component.componentGuarantee}}</p>
 <p><strong>Component Price : </strong>{{component.componentPrice}}<small> CAD</small></p>
-<p><strong>Component Manufacturer : </strong>{{manufacturerNom}}</p>
+<p><strong>Component Manufacturer : </strong>{{component.manufacturer}}</p>
 <a href="{{base}}/component/edit?componentId={{component.componentId}}" class="bouton">Edit</a>
 </div>
 

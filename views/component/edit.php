@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title: 'Component edit'}) }}
 
 <div class="Info flex-row">
-    <form action="{{ base }}/component/store" method="post">
+    <form method="post">
         <div class="h1">
             <h1>Add Component</h1>
         </div>
@@ -20,14 +20,14 @@
 
         <label>Component Price
             <input type="number" name="componentPrice" value="{{ component.componentPrice }}">
-        </label>
+            <label>Manufacturer
+                <select name="manufacturerId">
+                {% for manufacturer in manufacturers %}
+                <option value="{{ manufacturer.manufacturerId}}">{{  manufacturer.manufacturerName}}</option>
+                {% endfor %}
+                </select>
+            </label> </label>
 
-        <label for="Manufacturer_idManufacturer">Manufacturer
-            <select name="Manufacturer_idManufacturer" value="{{Manufacturer_idManufacturer}}">
-               
-               
-            </select>
-        </label>
 
         <input type="submit" value="Save" class="bouton">
     </form>

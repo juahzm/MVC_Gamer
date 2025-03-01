@@ -10,16 +10,17 @@ abstract class CRUD extends \PDO {
         if($field == null){
             $field = $this->primaryKey;
         }
-        
         $sql = "SELECT * FROM $this->table";//la variable table du component.php
         $stmt =$this->query($sql);
         return $stmt->fetchAll();
     }
 
+   
+
     final public function selectId($value){
-        $sql = "SELECT * FROM $this->table WHERE $this->primarykey = :$this->primarykey";
+        $sql = "SELECT * FROM $this->table WHERE $this->primaryKey = :$this->primaryKey";
         $stmt = $this->prepare($sql);
-        $stmt->bindValue(":$this->primarykey", $value);
+        $stmt->bindValue(":$this->primaryKey", $value);
         $stmt->execute();
         $count = $stmt->rowCount();
         if($count == 1){
@@ -29,6 +30,10 @@ abstract class CRUD extends \PDO {
         }
 
     }
+
+
+
+
 
     final public function insert($data){
         $data_keys = array_fill_keys($this->fillable, '');
@@ -49,5 +54,50 @@ abstract class CRUD extends \PDO {
         }
   
     }
+
+    final public function update($data, $id){
+        if($this->selectId($id)){
+            $data_keys = array_fill_keys($this->fillable, '');
+            $data = array_intersect_key($data, $data_keys);
+
+            $fieldName = null;
+            foreach($data as $key=>$value){
+                $fieldName .= "$key = :$key, ";
+            }
+            $fieldName = rtrim($fieldName, ', ');
+            $sql = "UPDATE $this->table SET $fieldName WHERE $this->primaryKey = :$this->primaryKey";
+            
+            $data[$this->primaryKey] = $id;
+        
+            $stmt = $this->prepare($sql);
+            foreach($data as $key=>$value){
+                $stmt->bindValue(":$key", $value);
+            }
+            if($stmt->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    final public function delete($value){
+        if($this->selectId($value)){
+            $sql = "DELETE FROM $this->table WHERE $this->primaryKey = :$this->primaryKey";
+            $stmt = $this->prepare($sql);
+            $stmt->bindValue(":$this->primaryKey", $value);
+            if($stmt->execute()){
+                return true;
+            }else{
+                return false;
+            } 
+        }else{
+            return false;
+        }
+    }
+
+
 
 }

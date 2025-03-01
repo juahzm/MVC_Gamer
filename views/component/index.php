@@ -25,17 +25,20 @@
 <td>{{component.componentDescription}}</td>
 <td>{{component.componentGuarantee}}</td>
 <td>{{component.componentPrice}}</td>
-<td>{{component.manufacturerNom}}</td>
+<td>{{component.manufacturer}}</td>       
+
 <td> <a href="{{base}}/component/show?componentId={{component.componentId}}"  class="bouton">View</a></td>
 <td>
-<form action="{base}}/component/delete.php" method="post">
-<input type="hidden" name="id" value="{{Component.componentId}}">
+<form action="{{base}}/component/delete" method="post">
+<input type="hidden" name="id" value="{{component.componentId}}">
 <input type="submit" class="bouton_delete" value="delete">
 </form>
 
 </td>
 </tr>
 {% endfor %}
+
+
 
 
 </tbody>

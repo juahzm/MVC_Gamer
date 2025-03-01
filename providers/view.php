@@ -12,4 +12,7 @@ class View {
         $twig->addGlobal('base', BASE);
         echo $twig->render($template.".php", $data);
     }
+    static public function redirect($url){
+        return header('location:'.BASE.'/'.$url);
+    }
 }

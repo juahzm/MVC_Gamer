@@ -8,44 +8,34 @@
             <label>Component Name
                 <input type="text" name="componentName" value="{{component.componentName}}">
             </label>
-            (% if errors.componentName is defined %)
+            {% if errors.componentName is defined %}
             <span class="error">{{errors.componentName}}</span>
-            (%endif%)
+            {%endif%}
             <label>Component Description
                 <input type="text" name="componentDescription" value="{{component.componenDescription}}">
             </label>
-            (% if errors.componentDescription is defined %)
+            {% if errors.componentDescription is defined %}
             <span class="error">{{errors.componentDescription}}</span>
-            (%endif%)
+            {%endif%}
             <label>Component Guarantee 
                 <input type="date" name="componentGuarantee">
             </label>
             <label>Component Price
                 <input type="number" name="componentPrice">
             </label>
-            <label for = "Manufacturer_idManufacturer">Manufacturer
+            <label>Manufacturer
+                <select name="Manufacturer_idManufacturer">
+                {% for manufacturer in manufacturers %}
+                <option value="{{ manufacturer.manufacturerId}}">{{  manufacturer.manufacturerName}}</option>
+                {% endfor %}
+                </select>
+            </label>
 
-                <select name="Manufacturer_idManufacturer" id="Manufacturer_idManufacturer" >;
-                <!-- <?php
-  
-                require_once('Classes/CRUD.php');
-                $crud = new CRUD;
-                $select = $crud->select('Manufacturer');
+            <input type="submit" value="Save"class="bouton">
 
-                ?> -->
-               
-
-                <?php
-                    foreach($select as $row) {
-                ?>
-                    <option value="<?= $row['manufacturerId']; ?>"><?= $row['manufacturerName']; ?></option>
-                <?php
-                    }
-                ?>
-                
         </form>
 
-        <input type="submit" value="Save"class="bouton">
+ 
         
     </div>
     {{ include('layouts/footer.php')}}
