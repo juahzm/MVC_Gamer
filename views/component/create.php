@@ -12,7 +12,7 @@
             <span class="error">{{errors.componentName}}</span>
             {%endif%}
             <label>Component Description
-                <input type="text" name="componentDescription" value="{{component.componenDescription}}">
+                <input type="text" name="componentDescription" value="{{component.componentDescription}}">
             </label>
             {% if errors.componentDescription is defined %}
             <span class="error">{{errors.componentDescription}}</span>
@@ -21,8 +21,11 @@
                 <input type="date" name="componentGuarantee">
             </label>
             <label>Component Price
-                <input type="number" name="componentPrice">
+                <input type="number" name="componentPrice" value="{{component.componentPrice}}">
             </label>
+            {% if errors.componentPrice is defined %}
+            <span class="error">{{errors.componentPrice}}</span>
+            {%endif%}
             <label>Manufacturer
                 <select name="Manufacturer_idManufacturer">
                 {% for manufacturer in manufacturers %}

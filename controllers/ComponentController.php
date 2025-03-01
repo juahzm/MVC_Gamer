@@ -81,7 +81,8 @@ class ComponentController {
 
      $validator = new Validator;
      $validator->field('componentName', $data['componentName'], 'Name')-> required()->max2(45); 
-     $validator->field('componentDescription', $data['componentDescription'], 'Description')-> required()->max(500); 
+     $validator->field('componentDescription', $data['componentDescription'], 'Description')-> required()->max(500);
+     $validator->field('componentPrice', $data['componentPrice'])->required()->number(); 
      
      if($validator->isSuccess()) {
 
@@ -129,7 +130,10 @@ class ComponentController {
           if($validator->isSuccess()) {
                $component = new Component;
                $update = $component->update($data, $get['componentId']);
-               
+
+                $manufacturer = new Manufacturer;
+                $select = $manufacturer->select();
+
                if($update){
                    return view::redirect('component');
                }else{
