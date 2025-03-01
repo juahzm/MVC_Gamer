@@ -10,9 +10,9 @@
 <body>
 <nav>
 <ul>
-<li><a href="">{{base}}/Component</a></li>
-<li><a href="">Utilisateurs</a></li>
-<li><a href="">Log in</a></li>
+<li><a href="{{base}}/component">Components</a></li>
+<li><a href="{{base}}/component/create">Component create</a></li>
+
 
 </ul>
 </nav>

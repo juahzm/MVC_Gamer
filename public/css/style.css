@@ -21,7 +21,7 @@ body {
 table {
     border-spacing: 20px;
     border: 1px solid lightslategray;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
 }
 
@@ -34,7 +34,7 @@ th {
 
 
 td {
-    border: 2px solid lightsteelblue;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 10px;
     text-align: center;
 
@@ -70,7 +70,7 @@ td {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     width: 500px;
     border-radius: 10px;
-    border: 1px solid lightslategray;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -99,7 +99,7 @@ select {
 .sel {
     width: 500px;
     height: 40px;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .error {
