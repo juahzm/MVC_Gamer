@@ -1,10 +1,12 @@
 582-31B-MA PROGRAMMATION WEB AVANCÉES groupe 23621
 TP2-MVC: Étudiant: Juan Hernandez.
 
-Projet: compuparts
-Racine: compuparts/component
+Projet: Compuparts 
+Racine: mvc/component
 Base de données: compuparts.sql
 
-webDev link:
+webDev link: https://e2295832.webdev.cmaisonneuve.qc.ca/mvc/component
 
-gitHubLink:
+gitHubLink: https://github.com/juahzm/MVC_Gamer
+
+
