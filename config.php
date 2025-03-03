@@ -2,5 +2,5 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-define('BASE', '/MVC');
-define('ASSET', '/MVC/public/');
+define('BASE', '/mvc');
+define('ASSET', '/mvc/public/');

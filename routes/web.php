@@ -7,7 +7,7 @@ use App\Routes\Route;
 use App\Controllers\ComponentController;
 
 
-
+Route::get('/component/index', 'ComponentController@index');
 Route::get('/component', 'ComponentController@index');
 Route::get('/component/create', 'ComponentController@create');
 Route::get('/component/show', 'ComponentController@show');
