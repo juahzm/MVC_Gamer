@@ -6,6 +6,7 @@ use App\Models\Component;
 use App\Models\Manufacturer;
 use App\Providers\View;
 use App\Providers\Validator;
+use App\Providers\Auth;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -13,6 +14,8 @@ ini_set('display_errors', 1);
 class ComponentController {
 
         public function index(){
+            Auth::session();
+
         $component = new Component;
         
         
@@ -21,6 +24,9 @@ class ComponentController {
        
 
         foreach($select as &$row){
+
+            // Auth::privilege(1);
+            
             $manufacturer = new Manufacturer;
             $select2 = $manufacturer->selectId($row['Manufacturer_idManufacturer']);
             $row['manufacturer'] = $select2['manufacturerName'];
@@ -36,12 +42,16 @@ class ComponentController {
 
 
     public function create() {
+         Auth::session();
+         Auth::privilege(1);
 
         $manufacturer = new Manufacturer;
         $select = $manufacturer->select();
         
     return View::render('component/create', ['manufacturers' => $select]);
+        
     }
+    
 
 
 
@@ -105,6 +115,9 @@ class ComponentController {
 
 
     public function edit($data=[]){
+        Auth::session();
+        Auth::privilege(1);
+
     if(isset($data['componentId']) && $data['componentId']!=null){
         $component = new Component;
         $manufacturer = new Manufacturer;
@@ -120,6 +133,8 @@ class ComponentController {
      }
 
      public function update($data=[], $get=[]){
+
+        Auth::session();
 
         
           $validator = new Validator;
@@ -144,10 +159,13 @@ class ComponentController {
                
                return View::render('component/edit', ['errors'=>$errors, 'component'=>$data]);
            }
+        
 
      }
 
      public function delete($data=[]){
+
+        Auth::session();
 
           $id = $data['id'];
           $component = new Component;
@@ -157,5 +175,6 @@ class ComponentController {
           }else{
               return View::render('error');
           }
+        
       }
 }

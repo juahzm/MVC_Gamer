@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Models;
 
 class Validator {
 
@@ -50,6 +51,25 @@ class Validator {
         }
         return $this;
     }
+
+    public function emailf() {
+        if (!empty($this->value) && !filter_var($this->value, FILTER_VALIDATE_EMAIL)) {
+            $this->errors[$this->key]="Invalid $this->name format.";
+        }
+        return $this;
+    }
+
+    public function unique($model){
+        $model = 'App\\Models\\'.$model;
+        $model = new $model;
+        $unique = $model->unique($this->key, $this->value);
+        if($unique){
+            $this->errors[$this->key]="$this->name must be unique!";
+        }
+        return $this;
+    }
+
+
 
     
 
