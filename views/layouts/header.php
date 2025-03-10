@@ -12,6 +12,7 @@
 <ul>
 
 {%if session.client_privilegeId == 1%}
+<li><a href="{{base}}/generate-pdf">pdf</a></li>
 <li><a href="{{base}}/journal">JournalDeBord</a></li>
 {% endif%}
 

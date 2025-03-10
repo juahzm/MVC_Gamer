@@ -27,5 +27,7 @@ Route::get('/logout', 'AuthController@delete'); //efacer la session
 
 Route::get('/journal', 'JournalController@index');
 
+Route::get('/generate-pdf', 'PdfController@index');
+
 
 Route::dispatch();
