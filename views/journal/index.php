@@ -1,18 +1,35 @@
 {{ include('layouts/header.php', {title:'Journal'})}}
 
-<h1>Journal</h1>
+<div class="flex-row">
+    <h1>Journal</h1>
+    <table>
+        <thead>
+            <tr>
+                <th><strong>user Name :</strong> </th>
+                <th><strong>log time:</strong> </th>
+                <th><strong>log IP address:</strong> </th>
 
-<div>
-{% for journal in journals %}
+            </tr>
 
-<p><strong>user Name :</strong> {{journal.journalUsername}}</p>
-<p><strong>log time: </strong> {{journal.journalTime}}</p>
-<p></strong>log IP address:</strong> {{journal.journalIp}}</p>
-{% endfor %}
+        </thead>
+
+        <tbody>
+            {% for journal in journals %}
+            <tr>
+
+                <td>{{journal.journalUsername}}</td>
+                <td>{{journal.journalTime}}</td>
+                <td>{{journal.journalIp}}</td>
+
+             </tr>
+         {% endfor %}
+
+        </tbody>
+
+    </table>
+    
 
 </div>
-
-
 
 {{ include('layouts/footer.php')}}
 

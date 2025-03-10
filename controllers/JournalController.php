@@ -17,11 +17,15 @@ class JournalController{
 
 public function index(){
 
+   
+    Auth::session();
     Auth::privilege(1);
 
+
     $journal = new Journal();
-    $select = $journal->getJournalInfo();
-    print_r($select);
+    $select = $journal->select();
+    
+    // print_r($select);
     
     if ($select) {
         
